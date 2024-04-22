@@ -18,7 +18,7 @@ router.get('/', async function(req, res, next) {
   try {
     const user = await Employee.getEmployees();
     const odataResponse = {
-        '@odata.context': 'http://localhost:3000/metadata',
+      '@odata.context': 'https://nodetestdatasphere-7c7fa012a402.herokuapp.com:3000/users/metadata',
       value: user.map(entity => ({
         id: entity.id,
         name: entity.full_name,
