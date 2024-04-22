@@ -1,20 +1,24 @@
-<?xml version="1.0" encoding="utf-8"?>
 <edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
   <edmx:DataServices>
-    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="YourNamespace">
-      <EntityType Name="Person">
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="MyNamespace">
+      <!-- Define Employee Entity Type -->
+      <EntityType Name="Employee">
         <Key>
-          <PropertyRef Name="id" />
+          <PropertyRef Name="id"/>
         </Key>
-        <Property Name="id" Type="Edm.Int32" Nullable="false" />
-        <Property Name="name" Type="Edm.String" />
-        <Property Name="age" Type="Edm.Int32" />
-        <ComplexType Name="Address">
-          <Property Name="city" Type="Edm.String" />
-          <Property Name="state" Type="Edm.String" />
-        </ComplexType>
-        <NavigationProperty Name="address" Type="YourNamespace.Address" Nullable="false" />
+        <Property Name="id" Type="Edm.Int32" Nullable="false"/>
+        <Property Name="name" Type="Edm.String"/>
+        <Property Name="age" Type="Edm.Int32"/>
+        <Property Name="department" Type="Edm.String"/>
+        <!-- Define additional properties as needed -->
       </EntityType>
+      
+      <!-- Define Entity Container -->
+      <EntityContainer Name="MyEntityContainer">
+        <!-- Define Entity Set for Employees -->
+        <EntitySet Name="Employees" EntityType="MyNamespace.Employee"/>
+        <!-- Define additional entity sets, function imports, etc. as needed -->
+      </EntityContainer>
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>
