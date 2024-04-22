@@ -9,7 +9,6 @@
         <Property Name="id" Type="Edm.Int32" Nullable="false"/>
         <Property Name="name" Type="Edm.String"/>
         <Property Name="age" Type="Edm.Int32"/>
-        <Property Name="department" Type="Edm.String"/>
         <!-- Define additional properties as needed -->
       </EntityType>
       
