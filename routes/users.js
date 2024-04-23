@@ -9,7 +9,7 @@ const metadataFilePath = path.join(__dirname, '..', 'metadata', 'metadata.xml');
 const metadata = fs.readFileSync(metadataFilePath, 'utf-8');
 
 // Serve the metadata document
-router.get('/metadata', (req, res) => {
+router.get('/$metadata', (req, res) => {
   res.type('application/xml').send(metadata);
 });
 
@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
   try {
     const users = await Employee.getEmployees();
     const odataResponse = {
-      '@odata.context': 'https://nodetestdatasphere-7c7fa012a402.herokuapp.com/users/metadata',
+      '@odata.context': 'https://nodetestdatasphere-7c7fa012a402.herokuapp.com/users/$metadata',
       value: users.map(user => ({
         id: user.id,
         name: user.full_name,  // Assuming full_name is the correct field
